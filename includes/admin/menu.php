@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Menu{
     public static function init(){
         $self = new self();
-        add_action('admin_menu', [$self, 'register_menu']);
+        add_action('admin_menu', [$self, 'register_menus']);
     }
 
-    public function register_menu(){
+    public function register_menus(){
         $menu = [];
         $menu[CARBOOKING_PLUGIN_SLUG] = [
             'parent_slug' => CARBOOKING_PLUGIN_SLUG, 
@@ -21,7 +21,7 @@ class Menu{
         ];
         $menu[CARBOOKING_PLUGIN_SLUG . '-service'] = [
             'parent_slug' => CARBOOKING_PLUGIN_SLUG,
-            'title' => __('Service', 'carbooking'),
+            'title' => __('Services', 'carbooking'),
             'capability' => 'manage_options'
         ];
         $menu[CARBOOKING_PLUGIN_SLUG . '-bookings'] = [
@@ -32,6 +32,11 @@ class Menu{
         $menu[CARBOOKING_PLUGIN_SLUG . '-shortcode'] = [
             'parent_slug' => CARBOOKING_PLUGIN_SLUG, 
             'title' => __('Shortcode', 'carbooking'),
+            'capability' => 'manage_options'
+        ];
+        $menu[CARBOOKING_PLUGIN_SLUG . '-settings'] = [
+            'parent_slug' => CARBOOKING_PLUGIN_SLUG,
+            'title' => __('Settings', 'carbooking'),
             'capability' => 'manage_options'
         ];
 
