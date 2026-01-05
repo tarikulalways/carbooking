@@ -66,7 +66,7 @@ final class Carbooking{
     }
 
     public function activation(){
-
+        CarBooking\Installer::init();
     }
 }
 

@@ -33,7 +33,7 @@ abstract class AbstractAjaxHandler{
         }
 
         $allow_visitor_action = isset($details['allow_visitor_action']) ? $details['allow_visitor_action'] : false;
-        $current_user = isset($details['capability']) ? $details['capability'] : '';
+        $current_user = isset($details['capability']) ? $details['capability'] : 'manage_options';
         if(! $allow_visitor_action && (! is_user_logged_in() || ! current_user_can($current_user) )){
             wp_send_json_error(['Insaficient permission'], 400);
         }

@@ -16,12 +16,14 @@ class Settings{
     }
 
     public static function set_default_data(){
-        $data = [];
+        $data = [
+            'carbooking_version' => '0.0.1'
+        ];
 
         return apply_filters('carbooking/admin/settings_default_data', $data);
     }
 
-    public static function save_settins($form_data = []){
+    public static function save_settings($form_data = []){
         $default_data = self::set_default_data();
         $save_data = self::get_save_data();
 
