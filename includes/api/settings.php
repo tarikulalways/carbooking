@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use WP_REST_Request;
 use WP_REST_Server;
-use Carbooking\Admin\Settings as BaseSettings;
+use CarBooking\Admin\Settings as BaseSettings;
 
 class Settings{
     public static function init(){
@@ -17,7 +17,7 @@ class Settings{
     }
 
     public function register_routes(){
-        register_rest_route(CARBOOKING_PLUGIN_SLUG . '/v1' . '/settings', [
+        register_rest_route(CARBOOKING_PLUGIN_SLUG . '/v1', '/settings', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'get_items'],
             'permission_callback' => [$this, 'get_user_permission']
@@ -31,10 +31,10 @@ class Settings{
         }
         return rest_ensure_response([
             'message' => 'No Settings found'
-        ], 404);
+        ]);
     }
 
-    public function get_user_permission(){
+    public function get_user_permission(WP_REST_Request $request){
         return current_user_can('manage_options');
     }
 }
