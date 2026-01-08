@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Carbooking\Classes\AbstractAjaxHandler;
-use CarBooking\Admin\Settings;
+use CarBooking\Admin\Settings as Basesettings;
 
 class Settings extends AbstractAjaxHandler{
     public function __construct(){
@@ -22,7 +22,7 @@ class Settings extends AbstractAjaxHandler{
     }
 
     public function get_settings(){
-        $data = Settings::get_save_data();
+        $data = Basesettings::get_save_data();
         wp_send_json_success($data);
     }
 
