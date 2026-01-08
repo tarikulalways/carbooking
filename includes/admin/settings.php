@@ -49,11 +49,10 @@ class Settings{
             'carbooking_email_footer_text' => '',
             'carbooking_picup_&_drop_location' => [],
         ];
-
         return apply_filters('carbooking/admin/settings_default_data', $data);
     }
 
-    public static function save_settins($form_data = []){
+    public static function save_settings($form_data = []){
         $default_data = self::set_default_data();
         $save_data = self::get_save_data();
 
