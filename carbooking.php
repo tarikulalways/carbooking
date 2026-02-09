@@ -39,6 +39,8 @@ final class Carbooking{
         define('CARBOOKING_PLUGIN_SLUG', 'carbooking');
         define('CARBOOKING_SETTINGS_NAME', 'carbooking_settings');
         define('CARBOOKING_PLUGIN_FILE', __FILE__);
+        define('CARBOOKING_DB_PREFIX', 'carbk');
+        define('CARBOOKING_SERVICE_POST_TYPE', CARBOOKING_DB_PREFIX . '_service');
         define('CARBOOKING_PLUGIN_BASENAME', plugin_basename(__FILE__));
         define('CARBOOKING_PLUGIN_ROOT_URL', plugin_dir_url(__FILE__));
         define('CARBOOKING_PLUGIN_ROOT_PATH', plugin_dir_path(__FILE__));

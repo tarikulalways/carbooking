@@ -45,8 +45,8 @@ class Menu{
     public function register_menus(){
         add_menu_page('CarBooking', 'CarBooking', 'manage_options', CARBOOKING_PLUGIN_SLUG, [$this, 'load_main_template'], null, 26);
 
-        foreach(self::get_menu_lists() as $item_key => $item){
-            add_submenu_page($item['parent_slug'], $item['title'], $item['title'], $item['capability'], $item_key, [$this, 'load_main_template']);
+        foreach(self::get_menu_lists() as $item_slug => $item){
+            add_submenu_page($item['parent_slug'], $item['title'], $item['title'], $item['capability'], $item_slug, [$this, 'load_main_template']);
         }
         
     }
