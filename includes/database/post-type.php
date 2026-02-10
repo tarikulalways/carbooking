@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PostType{
     public static function init(){
         $self = new self();
-        add_action('init', [$self, 'register_post_type']);
+        add_action('init', [$self, 'register_post']);
     }
 
-    public function register_post_type(){
+    public function register_post(){
         register_post_type(CARBOOKING_SERVICE_POST_TYPE, [
             'labels' => [
                 'name' => esc_html__('Services', 'carbooking'),
