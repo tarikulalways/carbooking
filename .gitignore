@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+vendor/
+library/vendor/
+!library/deps
+!assets/scss/vendor
+assets/js/*.txt
+.git
+.idea
+**/*.map
+assets/build/backend-dist.css
+assets/build/frontendCommon-dist.css
+assets/build/frontendCurriculums-dist.css
+assets/build/frontendDashboard-dist.css
+prepros.config
+.DS_Store
+library/deps/mpdf/mpdf/ttfonts/
