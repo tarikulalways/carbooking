@@ -52,6 +52,6 @@ class Menu{
     }
 
     public function load_main_template(){
-        echo '<div id="carbooking" class="carbooking wrap">loading</div>';
+        echo '<div id="carbooking" class="carbooking wrap"></div>';
     }
 }

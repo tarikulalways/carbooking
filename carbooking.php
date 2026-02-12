@@ -66,6 +66,7 @@ final class Carbooking{
     public function dispatch_hooks(){
         CarBooking\Admin::init();
         CarBooking\Api::init();
+        CarBooking\Assets::init();
     }
 
     public function activation(){
