@@ -1,7 +1,7 @@
 
 const Settings = () => {
     return(
-        <h1>This is a service page</h1>
+        <h1>This is a settings page</h1>
     )
 }
 
