@@ -28,6 +28,11 @@ class Menu{
             'parent_slug' => EASYBOOKING_PLUGIN_SLUG,
             'title' => __('Bookings', 'easybooking'),
             'capability' => 'manage_options'
+        ]; 
+        $menu[EASYBOOKING_PLUGIN_SLUG . '-availability'] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG,
+            'title' => __('Availability', 'easybooking'),
+            'capability' => 'manage_options'
         ];
         $menu[EASYBOOKING_PLUGIN_SLUG . '-shortcode'] = [
             'parent_slug' => EASYBOOKING_PLUGIN_SLUG, 

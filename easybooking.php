@@ -39,7 +39,7 @@ final class Easybooking{
         define('EASYBOOKING_PLUGIN_SLUG', 'easybooking');
         define('EASYBOOKING_SETTINGS_NAME', 'easybooking_settings');
         define('EASYBOOKING_PLUGIN_FILE', __FILE__);
-        define('EASYBOOKING_DB_PREFIX', 'carbk');
+        define('EASYBOOKING_DB_PREFIX', 'easybk');
         define('EASYBOOKING_SERVICE_POST_TYPE', EASYBOOKING_DB_PREFIX . '_service');
         define('EASYBOOKING_PLUGIN_BASENAME', plugin_basename(__FILE__));
         define('EASYBOOKING_PLUGIN_ROOT_URL', plugin_dir_url(__FILE__));

@@ -22,7 +22,7 @@ class MetaBase{
                 'show_in_rest' => true,
                 'sanitize_callback' => function($value){
                     if(empty($value)){
-                        return null;
+                        return 0;
                     }
                     return $value;
                 }
