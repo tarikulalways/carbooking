@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\Database;
+namespace EasyBooking\Database;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;

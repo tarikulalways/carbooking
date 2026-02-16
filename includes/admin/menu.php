@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\Admin;
+namespace EasyBooking\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -14,36 +14,36 @@ class Menu{
 
     public static function get_menu_lists(){
         $menu = [];
-        $menu[CARBOOKING_PLUGIN_SLUG] = [
-            'parent_slug' => CARBOOKING_PLUGIN_SLUG, 
-            'title' => __('Dashboard', 'carbooking'),
+        $menu[EASYBOOKING_PLUGIN_SLUG] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG, 
+            'title' => __('Dashboard', 'easybooking'),
             'capability' => 'manage_options'
         ];
-        $menu[CARBOOKING_PLUGIN_SLUG . '-service'] = [
-            'parent_slug' => CARBOOKING_PLUGIN_SLUG,
-            'title' => __('Services', 'carbooking'),
+        $menu[EASYBOOKING_PLUGIN_SLUG . '-service'] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG,
+            'title' => __('Services', 'easybooking'),
             'capability' => 'manage_options'
         ];
-        $menu[CARBOOKING_PLUGIN_SLUG . '-bookings'] = [
-            'parent_slug' => CARBOOKING_PLUGIN_SLUG,
-            'title' => __('Bookings', 'carbooking'),
+        $menu[EASYBOOKING_PLUGIN_SLUG . '-bookings'] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG,
+            'title' => __('Bookings', 'easybooking'),
             'capability' => 'manage_options'
         ];
-        $menu[CARBOOKING_PLUGIN_SLUG . '-shortcode'] = [
-            'parent_slug' => CARBOOKING_PLUGIN_SLUG, 
-            'title' => __('Shortcode', 'carbooking'),
+        $menu[EASYBOOKING_PLUGIN_SLUG . '-shortcode'] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG, 
+            'title' => __('Shortcode', 'easybooking'),
             'capability' => 'manage_options'
         ];
-        $menu[CARBOOKING_PLUGIN_SLUG . '-settings'] = [
-            'parent_slug' => CARBOOKING_PLUGIN_SLUG,
-            'title' => __('Settings', 'carbooking'),
+        $menu[EASYBOOKING_PLUGIN_SLUG . '-settings'] = [
+            'parent_slug' => EASYBOOKING_PLUGIN_SLUG,
+            'title' => __('Settings', 'easybooking'),
             'capability' => 'manage_options'
         ];
-        return apply_filters('carbooking/admin/menu_list', $menu);
+        return apply_filters('easybooking/admin/menu_list', $menu);
     }
 
     public function register_menus(){
-        add_menu_page('CarBooking', 'CarBooking', 'manage_options', CARBOOKING_PLUGIN_SLUG, [$this, 'load_main_template'], null, 26);
+        add_menu_page('EasyBooking', 'EasyBooking', 'manage_options', EASYBOOKING_PLUGIN_SLUG, [$this, 'load_main_template'], null, 26);
 
         foreach(self::get_menu_lists() as $item_slug => $item){
             add_submenu_page($item['parent_slug'], $item['title'], $item['title'], $item['capability'], $item_slug, [$this, 'load_main_template']);
@@ -52,6 +52,6 @@ class Menu{
     }
 
     public function load_main_template(){
-        echo '<div id="carbooking" class="carbooking wrap"></div>';
+        echo '<div id="easybooking" class="easybooking wrap"></div>';
     }
 }

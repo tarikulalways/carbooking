@@ -25,7 +25,7 @@ const Settings = () => {
                         {tabs.map((item)=>(
                             <li>
                                 {item.icon}
-                                <Link to={`wp-admin/admin.php?page=carbooking&tab=${item.slug}`}>
+                                <Link to={`wp-admin/admin.php?page=easybooking&tab=${item.slug}`}>
                                     {item.title}
                                 </Link>
                             </li>

@@ -1,7 +1,7 @@
 {
-  "name": "carbooking",
+  "name": "easybooking",
   "version": "0.0.1",
-  "description": "CarBooking",
+  "description": "EasyBooking",
   "main": "index.js",
   "scripts": {
     "start": "wp-scripts start",

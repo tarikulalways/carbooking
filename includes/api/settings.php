@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\API;
+namespace EasyBooking\API;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use WP_REST_Request;
 use WP_REST_Server;
-use CarBooking\Admin\Settings as BaseSettings;
+use EasyBooking\Admin\Settings as BaseSettings;
 
 class Settings{
     public static function init(){
@@ -17,7 +17,7 @@ class Settings{
     }
 
     public function register_routes(){
-        register_rest_route(CARBOOKING_PLUGIN_SLUG . '/v1', '/settings', [
+        register_rest_route(EASYBOOKING_PLUGIN_SLUG . '/v1', '/settings', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'get_items'],
             'permission_callback' => [$this, 'get_user_permission']

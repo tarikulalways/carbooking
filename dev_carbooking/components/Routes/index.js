@@ -8,23 +8,23 @@ import Payment from "../../containers/pages/Settings/Tabs/Payment";
 import Emails from "../../containers/pages/Settings/Tabs/Emails";
 
 export const routes = {
-    'carbooking': {
+    'easybooking': {
         title: 'Dashboard',
         component: Dashboard
     },
-    'carbooking-service': {
+    'easybooking-service': {
         title: 'Service',
         component: Service
     },
-    'carbooking-bookings': {
+    'easybooking-bookings': {
         title: 'Bookings',
         component: Bookings
     },
-    'carbooking-shortcode': {
+    'easybooking-shortcode': {
         title: 'Shortcode',
         component: Shortcode
     },
-    'carbooking-settings': {
+    'easybooking-settings': {
         title: 'Settings',
         component: Settings
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking;
+namespace EasyBooking;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -13,11 +13,11 @@ class Assets{
     }
 
     public function enqueue_app_assets($hook){
-        if(strpos($hook, '_page_' . CARBOOKING_PLUGIN_SLUG) !== false){
-            $dependencies = include_once CARBOOKING_PLUGIN_ASSETS_PATH . sprintf('build/backend.%s.asset.php', CARBOOKING_VERSION);
+        if(strpos($hook, '_page_' . EASYBOOKING_PLUGIN_SLUG) !== false){
+            $dependencies = include_once EASYBOOKING_PLUGIN_ASSETS_PATH . sprintf('build/backend.%s.asset.php', EASYBOOKING_VERSION);
             
-            wp_enqueue_style('carbk-app-style', CARBOOKING_PLUGIN_ASSETS_URL . 'build/style-backend.css', [], filemtime(CARBOOKING_PLUGIN_ASSETS_PATH . 'build/style-backend.css'), 'all');
-            wp_enqueue_script('carbk-app-scripts', CARBOOKING_PLUGIN_ASSETS_URL . sprintf('build/backend.%s.js', CARBOOKING_VERSION), $dependencies['dependencies'], $dependencies['version'], true);
+            wp_enqueue_style('carbk-app-style', EASYBOOKING_PLUGIN_ASSETS_URL . 'build/style-backend.css', [], filemtime(EASYBOOKING_PLUGIN_ASSETS_PATH . 'build/style-backend.css'), 'all');
+            wp_enqueue_script('carbk-app-scripts', EASYBOOKING_PLUGIN_ASSETS_URL . sprintf('build/backend.%s.js', EASYBOOKING_VERSION), $dependencies['dependencies'], $dependencies['version'], true);
         }
         
     }

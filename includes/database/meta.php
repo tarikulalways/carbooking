@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\Database;
+namespace EasyBooking\Database;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -14,10 +14,10 @@ class Meta extends MetaBase{
 
     public function register_service_meta(){
         $meta = [
-            '_' . CARBOOKING_DB_PREFIX . '_ad' => 'string'
+            '_' . EASYBOOKING_DB_PREFIX . '_ad' => 'string'
         ];
 
-        $this->register_meta(CARBOOKING_SERVICE_POST_TYPE, $meta);
+        $this->register_meta(EASYBOOKING_SERVICE_POST_TYPE, $meta);
 
     }
 }

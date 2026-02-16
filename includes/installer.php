@@ -1,12 +1,12 @@
 <?php
 
-namespace CarBooking;
+namespace EasyBooking;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use CarBooking\Admin\Settings;
+use EasyBooking\Admin\Settings;
 
 class Installer{
     public static function init(){

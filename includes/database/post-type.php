@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\Database;
+namespace EasyBooking\Database;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -13,13 +13,13 @@ class PostType{
     }
 
     public function register_post(){
-        register_post_type(CARBOOKING_SERVICE_POST_TYPE, [
+        register_post_type(EASYBOOKING_SERVICE_POST_TYPE, [
             'labels' => [
-                'name' => esc_html__('Services', 'carbooking'),
-                'singular_name' => esc_html__('Service', 'carbooking'),
-                'add_new_item' => esc_html__('Add new service', 'carbooking'),
-                'edit_item' => esc_html__('Edit service item', 'carbooking'),
-                'view_item' => esc_html__('View item', 'carbooking')
+                'name' => esc_html__('Services', 'easybooking'),
+                'singular_name' => esc_html__('Service', 'easybooking'),
+                'add_new_item' => esc_html__('Add new service', 'easybooking'),
+                'edit_item' => esc_html__('Edit service item', 'easybooking'),
+                'view_item' => esc_html__('View item', 'easybooking')
             ],
             'public' => true,
             'show_ui' => false,
@@ -27,8 +27,8 @@ class PostType{
             'has_archive' => true,
             'show_in_menu' => false,
             'show_in_rest' => true,
-            'rest_base' => CARBOOKING_SERVICE_POST_TYPE,
-            'rest_namespace' => CARBOOKING_PLUGIN_SLUG . '/v1',
+            'rest_base' => EASYBOOKING_SERVICE_POST_TYPE,
+            'rest_namespace' => EASYBOOKING_PLUGIN_SLUG . '/v1',
             'rest_controller_class' => 'WP_REST_Post_Controller'
         ]);
     }

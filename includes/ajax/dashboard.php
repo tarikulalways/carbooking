@@ -1,6 +1,6 @@
 <?php
 
-namespace CarBooking\Ajax;
+namespace EasyBooking\Ajax;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; 

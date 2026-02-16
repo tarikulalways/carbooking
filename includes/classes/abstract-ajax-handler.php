@@ -1,14 +1,14 @@
 <?php
 
-namespace CarBooking\Classes;
+namespace EasyBooking\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 abstract class AbstractAjaxHandler{
-    protected $nonce_action = 'carbooking_nonce';
-    protected $namespace = CARBOOKING_PLUGIN_SLUG;
+    protected $nonce_action = 'easybooking_nonce';
+    protected $namespace = EASYBOOKING_PLUGIN_SLUG;
     protected $actions = [];
 
     public function dispatch_actions(){

@@ -1,5 +1,5 @@
 <?php
-namespace CarBooking;
+namespace EasyBooking;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -22,7 +22,7 @@ class Autoload {
 	 * @var array
 	 */
 	private $autoload_directories = array(
-		'CarBooking' => CARBOOKING_PLUGIN_ROOT_PATH . 'includes/',
+		'EasyBooking' => EASYBOOKING_PLUGIN_ROOT_PATH . 'includes/',
 	);
 
 	/**

@@ -1,12 +1,12 @@
 <?php
 
-namespace CarBooking;
+namespace EasyBooking;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use CarBooking\Ajax\Settings;
+use EasyBooking\Ajax\Settings;
 use Carbooking\Ajax\Dashboard;
 
 class Ajax{

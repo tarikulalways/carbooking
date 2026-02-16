@@ -4,7 +4,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import TopBar from "./components/TopBar";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('carbooking');
+    const container = document.getElementById('easybooking');
     if(container){
         const root = createRoot(container);
         root.render(
