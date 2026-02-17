@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use WP_REST_Request;
-use EasyBooking\Classes\Availablity as AvailabilityQuery;
+use EasyBooking\Classes\Availability as AvailabilityQuery;
 
 class Availability{
     protected $namespace = EASYBOOKING_PLUGIN_SLUG . '/v1';
@@ -29,7 +29,7 @@ class Availability{
     }
 
     public function get_item(WP_REST_Request $request){
-        $search = isset($request->get_param('search'))? sanitize_text_field($request->get_param('search')): '';
+        $search = $request->get_param('search')? sanitize_text_field($request->get_param('search')): '';
 
         $data = AvailabilityQuery::index($search);
         
@@ -40,9 +40,9 @@ class Availability{
     }
 
     public function create_item(WP_REST_Request $request){
-        $name = isset($request->get_param('name'))? sanitize_text_field($request->get_param('name')): '';
-        $timezone = isset($request->get_param('timezone'))? sanitize_text_field($request->get_param('timezone')): wp_timezone();
-        $schedule = isset($request->get_param('schedule'))? json_encode($request->get_param('schedule')):'';
+        $name = $request->get_param('name')? sanitize_text_field($request->get_param('name')): '';
+        $timezone = $request->get_param('timezone')? sanitize_text_field($request->get_param('timezone')): wp_timezone();
+        $schedule = $request->get_param('schedule')? json_encode($request->get_param('schedule')):'';
         $is_default = AvailabilityQuery::total() ? 0 : 1;
 
         $data = [
@@ -52,9 +52,25 @@ class Availability{
             'is_default' => $is_default
         ];
 
-        $insert = AvailabilityQuery::create($data);
-        if(){
-            
+        $is_create = AvailabilityQuery::create_availability($data);
+        do_action('easybooking/after_create_availability', $is_create);
+
+        $result = [
+            'name' => $is_create->name,
+            'timezone' => $is_create->timezone,
+            'schedule' => $is_create->schedule ? json_decode($is_create->schedule): [],
+        ];
+
+        if($is_create){
+            return rest_ensure_response([
+                'success' => true,
+                'data' => $result
+            ]);
+        }else{
+            return rest_ensure_response([
+                'success' => false,
+                'message' => __('Availability create failed', 'easybooking')
+            ]);
         }
         
     }
