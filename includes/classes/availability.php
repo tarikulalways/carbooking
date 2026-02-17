@@ -22,16 +22,43 @@ class Availability{
     }
     
     // get all availability
-    public static function index(){
+    public static function get_availability($search){
         global $wpdb;
-
         $table = self::table();
-        $select = $wpdb->get_result(
-            $wpdb->prepare(
-                "SELECT * FROM {$table}"
-            )
-        );
-        return $select;
+        
+        if($search){
+            $data = $wpdb->get_results([
+                $wpdb->prepare(
+                    "SELECT * FROM {$table} WHERE name LIKE %s",
+                    $search
+                )
+            ]);
+            
+            return self::formated_availability($data);
+        }else{
+            $data = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT * FROM {$table} WHERE is_active = %d",
+                    1
+                )
+            );
+
+            return self::formated_availability($data);
+        }
+    }
+
+    public static function formated_availability(array $data){
+        $formated = array_map(function($item){
+            return [
+                'id' => (int) $item->id,
+                'name' => $item->name,
+                'timezone' => $item->timezone,
+                'schedule' => $item->schedule? json_decode($item->schedule, true): [],
+                'create_at' => $item->create_at
+            ];
+        }, $data);
+
+        return $formated;
     }
 
     // get total availability
@@ -48,7 +75,7 @@ class Availability{
     }
 
     // update availability
-    public static function update($id, $data){
+    public static function update_availability(int $id, array $data){
         global $wpdb;
 
         if(empty($id) || ! is_array($data)){
@@ -58,30 +85,44 @@ class Availability{
         $update = $wpdb->update(self::table(), $data, ['id' => $id]);
 
         if($update){
-            $get_data_by_id = self::get_availability_by_id($id);
-            if($get_data_by_id){
-                return $get_data_by_id;
-            }
+            return self::get_availability_by_id($id);
         }
     }
 
     // get availability by id
-    public static function get_availability_by_id($id){
+    public static function get_availability_by_id(int $id){
         global $wpdb;
         if(empty($id) || ! is_numeric($id)){
             return false;
         }
 
         $table = self::table();
-        $select = $wpdb->get_row(
+        $data = $wpdb->get_row(
             $wpdb->prepare(
                 "SELECT * FROM {$table} WHERE id = %d",
                 $id
             )
         );
 
-        if($select){
-            return $select;
+        if(is_object($data)){
+            return [
+                'id' => (int) $data->id,
+                'name' => $data->name,
+                'timezone' => $data->timezone,
+                'schedule' => $data->schedule ? json_decode($data->schedule): [],
+            ];
+        }
+    }
+
+    public static function delete_availability(int $id){
+        global $wpdb;
+        if(empty($id) || !is_numeric($id)){
+            return false;
+        }
+
+        $is_delete = $wpdb->delete(self::table(), ['id' => $id]);
+        if($is_delete){
+            return $is_delete;
         }
     }
 
