@@ -29,7 +29,7 @@ class Availability{
     }
 
     public function get_item(WP_REST_Request $request){
-        $search = isset($request->get_param('search')) ?? '';
+        $search = isset($request->get_param('search'))? sanitize_text_field($request->get_param('search')): '';
 
         $data = AvailabilityQuery::index($search);
         
@@ -40,7 +40,23 @@ class Availability{
     }
 
     public function create_item(WP_REST_Request $request){
+        $name = isset($request->get_param('name'))? sanitize_text_field($request->get_param('name')): '';
+        $timezone = isset($request->get_param('timezone'))? sanitize_text_field($request->get_param('timezone')): wp_timezone();
+        $schedule = isset($request->get_param('schedule'))? json_encode($request->get_param('schedule')):'';
+        $is_default = AvailabilityQuery::total() ? 0 : 1;
 
+        $data = [
+            'name' => $name,
+            'timezone' => $timezone,
+            'schedule' => $schedule,
+            'is_default' => $is_default
+        ];
+
+        $insert = AvailabilityQuery::create($data);
+        if(){
+            
+        }
+        
     }
 
     public function admin_only(){

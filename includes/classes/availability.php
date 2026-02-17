@@ -17,7 +17,7 @@ class Availablity{
 
         $insert = $wpdb->insert(self::table(), $data);
         if($insert){
-            return $insert;
+            return self::show($insert->insert_id);
         }
     }
     
@@ -30,6 +30,17 @@ class Availablity{
             )
         );
         return $select;
+    }
+
+    // get total availability
+    public static function total(){
+        global $wpdb;
+        $total = $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT COUNT(id) FROM {self::table()}"
+            )
+        );
+        return $total;
     }
 
     // update availability
