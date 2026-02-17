@@ -6,9 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use EasyBooking\Ajax\Settings;
-use Carbooking\Ajax\Dashboard;
-
 class Ajax{
     public static function init(){
         $self = new self();
@@ -16,7 +13,7 @@ class Ajax{
     }
 
     public function dispatch_hook(){
-        (new Settings())->dispatch_actions();
-        (new Dashboard())->dispatch_actions();
+        (new Ajax\Settings())->dispatch_actions();
+        (new Ajax\Dashboard())->dispatch_actions();
     }
 }

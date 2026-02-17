@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; 
 }
 
-use Carbooking\Classes\AbstractAjaxHandler;
-use Carbooking\Admin\Menu;
+use EasyBooking\Classes\AbstractAjaxHandler;
+use EasyBooking\Admin\Menu;
 
 class Dashboard extends AbstractAjaxHandler{
     public function __construct(){

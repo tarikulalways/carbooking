@@ -23,7 +23,13 @@ class Availablity{
     
     // get all availability
     public static function index(){
-        $select = "SELECT * FORM {self::table()}";
+        global $wpdb;
+        $select = $wpdb->get_result(
+            $wpdb->prepare(
+                "SELECT * FROM {self::table()}"
+            )
+        );
+        return $select;
     }
 
     // update availability

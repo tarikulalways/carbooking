@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use Carbooking\Classes\AbstractAjaxHandler;
+use EasyBooking\Classes\AbstractAjaxHandler;
 use EasyBooking\Admin\Settings as Basesettings;
 
 class Settings extends AbstractAjaxHandler{
