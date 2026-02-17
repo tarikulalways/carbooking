@@ -16,4 +16,13 @@ class Database{
         Database\PostType::init();
         Database\Meta::init();
     }
+
+    public static function create_initial_custom_table(){
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        global $wpdb;
+        $prefix = $wpdb->prefix;
+        $charset_collate = $wpdb->get_charset_collate();
+
+        Database\CreateAvailabilityTable::up($prefix, $charset_collate);
+    }
 }
