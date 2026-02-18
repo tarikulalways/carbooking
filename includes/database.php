@@ -7,12 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Database{
-    public static function init(){
-        $self = new self();
-        $self->dispatch_event();
-    }
-
-    public function dispatch_event(){
+    public static function dispatch_post_type(){
         Database\PostType::init();
         Database\Meta::init();
     }

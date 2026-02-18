@@ -12,10 +12,15 @@ class Installer{
     public static function init(){
         $self = new self();
         $self->save_main_settings();
-        Database::create_initial_custom_table();
+        $self->insert_database_table();
     }
 
     public function save_main_settings(){
         Settings::save_settings();
+    }
+
+    public function insert_database_table(){
+        Database::dispatch_post_type();
+        Database::create_initial_custom_table();
     }
 }
