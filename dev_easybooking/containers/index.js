@@ -8,9 +8,7 @@ const BackendDashboard = () => {
 
     let CurrentComponent = null;
 
-    if (tab && routes[tab]) {
-        CurrentComponent = routes[tab].component;
-    } else if (page && routes[page]) {
+ if (page && routes[page]) {
         CurrentComponent = routes[page].component;
     }
     

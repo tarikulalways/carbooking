@@ -28,16 +28,4 @@ export const routes = {
         title: 'Settings',
         component: Settings
     },
-    'general': {
-        title: 'general',
-        component: General
-    },
-    'payment': {
-        title: 'Payment',
-        component: Payment
-    },
-    'emails': {
-        title: 'Emails',
-        component: Emails
-    }
 };

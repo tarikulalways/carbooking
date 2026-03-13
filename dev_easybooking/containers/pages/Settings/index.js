@@ -1,18 +1,46 @@
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import General from "./Tabs/General";
 import Payment from "./Tabs/Payment";
 import Emails from "./Tabs/Emails";
+import './style.css';
 
 const Settings = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const currentTab = searchParams.get("tab") || "general";
+
+    const currentTab = searchParams.get('tab') || 'general';
+
+    useEffect(() => {
+        if (!searchParams.get('tab')) {
+            searchParams.set('tab', 'general'); // set default tab
+            setSearchParams(searchParams);      // update URL
+        }
+    }, []);
+    
+    const changeTab = (slug) => {
+        searchParams.set("tab", slug);
+        setSearchParams(searchParams);
+    };
+
+    const randerTab = () => {
+        switch(currentTab){
+            case 'general':
+                return <General/>
+            case 'payment':
+                return <Payment/>
+            case 'emails':
+                return <Emails/>
+            default:
+                return <General/>
+        }
+    }
 
     const tabs = [
         {
             title: "General",
             icon: <span className="dashicons dashicons-admin-generic"></span>,
-            slug: "general"
+            slug: "general",
         },
         {
             title: "Payment",
@@ -26,26 +54,6 @@ const Settings = () => {
         }
     ];
 
-    const changeTab = (slug) => {
-
-        const params = new URLSearchParams(window.location.search);
-
-        params.set("tab", slug);
-
-        setSearchParams(params);
-    };
-
-    const renderContent = () => {
-        switch(currentTab){
-            case "payment":
-                return <Payment />;
-            case "emails":
-                return <Emails />;
-            default:
-                return <General />;
-        }
-    };
-
     return (
         <div className="carbk-setting-container">
 
@@ -53,7 +61,9 @@ const Settings = () => {
                 <ul>
                     {tabs.map((item)=>(
                         <li key={item.slug}>
-                            <button onClick={()=>changeTab(item.slug)}>
+                            <button
+                                onClick={() =>changeTab(item.slug)}
+                            >
                                 {item.icon} {item.title}
                             </button>
                         </li>
@@ -62,7 +72,7 @@ const Settings = () => {
             </div>
 
             <div className="carbk-setting-content">
-                {renderContent()}
+                {randerTab()}
             </div>
 
         </div>

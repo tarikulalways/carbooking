@@ -1,0 +1,21 @@
+.carbk-setting-container {
+    display: flex;
+    gap: 20px;
+}
+
+.carbk-setting-sidebar {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.carbk-setting-sidebar ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.carbk-setting-sidebar ul li button {
+    cursor: pointer;
+}

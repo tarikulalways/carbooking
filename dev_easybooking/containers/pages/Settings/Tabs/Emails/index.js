@@ -1,7 +1,19 @@
 const Emails = () => {
+
+    const handleSubmit = (e) => {
+        console.log(e)
+    }
+
+
     return(
         <di>
-            <h3>This is a setting email</h3>
+            <from onSubmit={() => handleSubmit(e)} method="post" action="#">
+                <div className="mb-3">
+                    <label for="email">Your Email:</label>
+                    <input name="email"/>
+                </div>
+                <button type="submit">Save</button>
+            </from>
         </di>
     )
 }
