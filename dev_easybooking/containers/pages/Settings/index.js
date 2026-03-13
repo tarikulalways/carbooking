@@ -9,7 +9,7 @@ const Settings = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const currentTab = searchParams.get('tab') || 'general';
+    const currentTab = searchParams.get('tab');
 
     useEffect(() => {
         if (!searchParams.get('tab')) {
