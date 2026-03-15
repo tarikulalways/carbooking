@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const root = createRoot(container);
         root.render(
             <Router>
-                <TopBar/>
+                {/* <TopBar/> */}
                 <BackendDashboard/>
             </Router>
         );

@@ -1,21 +1,88 @@
-.carbk-setting-container {
-    display: flex;
-    gap: 20px;
-}
-
-.carbk-setting-sidebar {
+.carbk-topbar {
     background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 15px 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
-.carbk-setting-sidebar ul {
+span.carbk-header-topicon {
+    background-color: #135dbe;
+    padding: 6px;
+    border-radius: 6px;
+    color: #fff;
+    text-align: center;
+}
+
+span.carbk-header-topicon svg {
+    height: 20px;
+    width: 20px;
+}
+
+.carbk-tobar-content-area {
     display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: flex-start;
+}
+
+.carbk-logo-content {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.carbk-tab-lists {
+    display: flex;
+    align-items: center;
     gap: 10px;
+}
+
+.carbk-tab-lists button {
+    background-color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #646970;
+}
+
+.carbk-tab-lists a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #d35400;
+}
+
+/* dashboard wellcom area */
+.carbk-layout-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    height: 100vh;
+    display: flex;
     flex-direction: column;
 }
 
-.carbk-setting-sidebar ul li button {
-    cursor: pointer;
+.carbk-dashboard-wellcome {
+    background: linear-gradient(135deg,#135dbe,#0e4690);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    color: #fff;
+}
+
+.carbk-dashboard-wellcome h1 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.carbk-dashboard-wellcome p {
+    line-height: 1.5;
+    color: hsla(0,0%,100%,.9);
+    font-size: 16px;
+    margin: 0px;
 }
